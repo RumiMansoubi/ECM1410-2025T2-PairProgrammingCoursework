@@ -121,6 +121,7 @@ After playing DOT views the daily league results.
 <br>
 
 ------
+
 <br>
 
 **Weekly league points table**
@@ -140,6 +141,7 @@ After playing DOT views the daily league results.
 
 ------
 <br>
+
 **Weekly ranking**
 
 - **1st** ALICE, BEN (tie on 12 points)
