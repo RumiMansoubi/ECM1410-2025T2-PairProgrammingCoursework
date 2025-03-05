@@ -1,6 +1,8 @@
 ## Getting started
 
-### What files you will need to code
+As suggested by the coursework specification you should start by reading through all the materials and working out how your backend implementation will be structured (e.g. classes, attributes etc). However I have written the following based on discussions with students in the Monday drop-in support session, to give you some suggested first steps to start the project coding. If you have a query or spot an issue with this document please let me know via email.
+
+### What files you need to code
 
 Your job is to write code that will implement the `GamesLeagueInterface` and form a backend for the `gamesleague` package.
 
