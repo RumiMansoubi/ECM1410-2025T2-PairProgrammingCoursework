@@ -11,7 +11,7 @@ import java.time.LocalDate;
  * with no initial users or leagues within it.
  * 
  *
- * @author Philip Lewis
+ * @author Philip Lewis 
  * @version 0.3.1
  */
 
