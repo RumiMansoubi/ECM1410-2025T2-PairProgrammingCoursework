@@ -7,12 +7,13 @@ import java.util.List;
 //implements GamesLeagueInterface, manages players leagues and scores
 public class GamesLeague implements GamesLeagueInterface{
 
+    public GamesLeague(List<League> leagues, List<Players> players) {
+        this.leagues = leagues;
+        this.players = players;
+    }
+
     private List<League> leagues;
     private List<Players> players;
-
-    public GamesLeague() {
-        
-    }
 
     @Override
     public int[] getPlayerIds() {
@@ -367,6 +368,22 @@ public class GamesLeague implements GamesLeagueInterface{
     public void loadGamesLeagueData(String filename) throws IOException, ClassNotFoundException {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'loadGamesLeagueData'");
+    }
+
+    public List<League> getLeagues() {
+        return leagues;
+    }
+
+    public void setLeagues(List<League> leagues) {
+        this.leagues = leagues;
+    }
+
+    public List<Players> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Players> players) {
+        this.players = players;
     }
     
 }
