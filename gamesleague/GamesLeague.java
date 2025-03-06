@@ -8,6 +8,7 @@ import java.util.List;
 //implements GamesLeagueInterface, manages players leagues and scores
 public class GamesLeague implements GamesLeagueInterface{
 
+    //Class Constructor
     public GamesLeague(List<League> leagues, List<Players> players) {
         this.leagues = leagues;
         this.players = players;
@@ -371,6 +372,8 @@ public class GamesLeague implements GamesLeagueInterface{
         throw new UnsupportedOperationException("Unimplemented method 'loadGamesLeagueData'");
     }
 
+
+    //Getters and Setters
     public List<League> getLeagues() {
         return leagues;
     }
