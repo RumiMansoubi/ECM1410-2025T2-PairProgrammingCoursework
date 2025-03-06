@@ -1,5 +1,5 @@
 package gamesleague;
 
-public class Player {
+public class Players {
     
 }
