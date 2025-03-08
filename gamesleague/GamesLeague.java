@@ -3,6 +3,9 @@ package gamesleague;
 import java.io.IOException;
 import java.time.LocalDate;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * GamesLeague Class Template
  * You can use this template and add the corect method code.
@@ -17,18 +20,37 @@ public class GamesLeague implements GamesLeagueInterface {
 
 
     // Players
+    private List<Player> players;
+
+    public GamesLeague() {
+        this.players = new ArrayList<>();
+    }
 
     /**
      * Get the players currently created in the platform.
      *
      * @return An array of player IDs in the system or an empty array if none exists.
      */
-    public int[] getPlayerIds(){
+    
+    @Override
+     public int[] getPlayerIds(){
 
-        
-        return new int[0]; // placeholder so class compiles
-    };
+        if (players.isEmpty()) {  
+            return new int[0]; // placeholder so class compiles
+        }
 
+        int[] playerIds = new int[players.size()];
+
+        for (int i = 0; i<players.size(); i++) {
+            playerIds[i] = players.get(i).getId();
+        }
+
+        return playerIds;
+
+    }
+    public void addPlayer(Player player) {
+        players.add(player);
+    }
 
     /**
      * Creates a player entry.
@@ -38,20 +60,50 @@ public class GamesLeague implements GamesLeagueInterface {
      * @param name The name of the player.
      * @param phone The contact phone number of the player or empty string.
      * @return The ID of the rider in the system.
-     * @throws InvalidNameException If the displayName/name is null or starts/ends with whitespace, 
+     * @throws InvalidNameException If the displayName/name is null or starts/ends with whitespace,
      *                              or if the name is less than 5 char / more than 50 char.
      *                              or if displayName is less than 1 char/more than 20 char.
      * @throws InvalidEmailException If the email is null, empty, or does not contain an '@' character,
      * @throws IllegalEmailException if it duplicates an existing email of a player
      */
     public int createPlayer(String email, String displayName, String name, String phone) 
-        throws  InvalidEmailException,   
+            throws  InvalidEmailException,   
                 IllegalEmailException,
                 InvalidNameException {
-        
 
-        return 0; // placeholder so class compiles
+
+        // Validate Name
+        if (name == null || name.trim().isEmpty() || name.length() < 5 || name.length() > 50) {
+            throw new InvalidNameException("Name must be between 5-50 characters & cannot start or end with spaces.");
         }
+
+        // Validate Display Name
+        if (displayName == null || displayName.trim().isEmpty() || displayName.length() < 1 || displayName.length() > 20) {
+            throw new InvalidNameException("Display name must be between 1-20 characters & cannot start or end with spaces.");
+        }
+
+        // Validate Email
+        if (email == null || email.trim().isEmpty() || !email.contains("@")) {
+            throw new InvalidEmailException("Invalid email format.");
+        }
+
+        for (Player p : players) {
+            if (p.getEmail().equalsIgnoreCase(email)) {
+                throw new IllegalEmailException("Email already exists in the system.");
+            }
+        }
+
+        // Generate Unique ID
+        int newId = players.size() + 1;
+        Player newPlayer = new Player(newId, email, displayName, name, phone);
+        players.add(newPlayer);
+
+
+    return 0; // placeholder so class compiles
+
+    }
+}
+
 
 
     /**
