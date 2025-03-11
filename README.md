@@ -1,11 +1,5 @@
 # ECM1410-2025T2-PairProgrammingCoursework
 
-#### Patching the Interface
-
-```
-curl -O -J -L https://github.com/My-UofE/ECM1410-2025T2-PairProgrammingCoursework/raw/refs/heads/main/patch_v1.zip
-bash ./.classroom/apply_patch_v1.sh
-```
 
 Please see the coursework specification. 
 
