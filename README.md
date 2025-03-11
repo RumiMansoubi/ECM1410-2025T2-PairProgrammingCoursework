@@ -3,7 +3,7 @@
 #### Patching the Interface
 
 ```
-curl  https://github.com/My-UofE/ECM1410-2025T2-PairProgrammingCoursework/blob/main/patch_v1.zip
+curl  https://github.com/My-UofE/ECM1410-2025T2-PairProgrammingCoursework/blob/main/patch_v1.zip > patch_v1.zip
 ```
 
 Please see the coursework specification. 
