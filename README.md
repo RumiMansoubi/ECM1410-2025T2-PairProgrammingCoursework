@@ -16,7 +16,7 @@ curl -O -J -L https://github.com/My-UofE/ECM1410-2025T2-PairProgrammingCoursewor
 unzip -o patch_v1.zip; rm patch_v1.zip
 ```
 
-3/ run patch to automatically update GamesLeague.java.
+3. run patch to automatically update GamesLeague.java.
 
 Please note and where necessary manually update your file with any changes that could not be made.
 
