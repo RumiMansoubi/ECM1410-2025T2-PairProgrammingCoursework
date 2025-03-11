@@ -1,5 +1,11 @@
 # ECM1410-2025T2-PairProgrammingCoursework
 
+#### Patching the Interface
+
+```
+curl  https://github.com/My-UofE/ECM1410-2025T2-PairProgrammingCoursework/blob/main/patch_v1.zip
+```
+
 Please see the coursework specification. 
 
 This activity is to write a `gamesleague` package in java with the functionality to set up and calculate leagues in which groups of friends can register scores from games such as Wordle and access the resulting league tables of results.
