@@ -1,29 +1,5 @@
 # ECM1410-2025T2-PairProgrammingCoursework
 
-#### Patching instructions
-
-Please run the following commands in your CodeSpace to download and run the patch with the documentation/exception fixes. (Make sure to commit and push any code you have been working on).
-
- 1. Download the patch
-
-```
-curl -O -J -L https://github.com/My-UofE/ECM1410-2025T2-PairProgrammingCoursework/raw/refs/heads/main/patch_v1.zip
-```
-
-2. unzip into .classroom directory then delete zip
-
-```
-unzip -o patch_v1.zip; rm patch_v1.zip
-```
-
-3. run patch to automatically update GamesLeague.java.
-
-Please note and where necessary manually update your file with any changes that could not be made.
-
-```
-bash .classroom/apply_patch_v1.sh
-```
-
 Please see the coursework specification. 
 
 This activity is to write a `gamesleague` package in java with the functionality to set up and calculate leagues in which groups of friends can register scores from games such as Wordle and access the resulting league tables of results.
