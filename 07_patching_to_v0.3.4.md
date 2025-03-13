@@ -1,4 +1,4 @@
-#### Patching to version 0.3.5 of GamesLeagueInterface (last update 1pm Thurs 13th March)
+#### Patching to version 0.3.6 of GamesLeagueInterface (last update 2pm Thurs 13th March)
 
 As mentioned thanks to some students who identified some inconsistences in the interface. I have created a patch script which attemmpts to update your repository with the corrections.
 
@@ -69,6 +69,25 @@ Adjusted `cloneLeague` exceptions to match `createLeague` exceptions for consist
         throws  IDInvalidException,
                 InvalidNameException, 
                 IllegalNameException;
+```
+-------
+
+Removed requirement `Once scores are registered the game status for each player should be set to CLOSED.` and fixed typo (`voided` -> `registered`).
+
+```java
+    /**
+     * Register day game scores. Will be called when all play in a round is complete.
+     * with scores ordered to match player array returned by getLeaguePlayers().
+     * 
+     * @param day The epoch day the game was played.
+     * @param leagueId The ID of the league being queried.
+     * @param scores The game scores with order to match the array returned by getLeaguePlayers().
+     * @throws IDInvalidException If the ID does not match to any league in the system.
+     * @throws IllegalArgumentException If the day specified has already been closed,
+     *                                  or if current date is 2 days or more after the day being registered.
+     */
+    public void registerDayScores(int day, int leagueId, int[] scores) 
+        throws IDInvalidException, IllegalArgumentException
 ```
 
 -------
