@@ -48,7 +48,7 @@ bash ./.classroom apply_patch_v1_2.sh
 
 This script uses find/replace targets to update the documentation/exceptions.
 
-**After patching the Interface version should be set to v0.3.5**
+**After patching the Interface version should be set to v0.3.6**
 
 **If the patch does not work you can manually update your GamesLeague.java file using the following:**
 
