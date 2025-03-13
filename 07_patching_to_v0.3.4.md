@@ -2,10 +2,12 @@
 
 As mentioned thanks to some students who identified some inconsistences in the interface. I have created a patch script which attemmpts to update your repository with the corrections.
 
-The idea is that your `GamesLeagueInterface.java` file gets replaced with v0.3.4 (started as v0.3.1) which has the fixes. 
-The patch script tries to automatically make corresponding changes to your GamesLeague.java file (which should be in your ./src/gamesleague directory).
+The idea is that your `GamesLeagueInterface.java` file gets replaced with v0.3.5 (started as v0.3.1) which has the fixes. 
+The patch scripts try to automatically make corresponding changes to your GamesLeague.java file (which should be in your ./src/gamesleague directory).
 
 You can either use the instructions below to try to patch your code, or make the changes manually to the files using the list of corrections below.
+
+**Note if you applied a previous patch file there is no problem downloading and running the latest patch provided to make the additional changes.**
 
 Please run the following commands in your CodeSpace to download and run the patch with the documentation/exception fixes. (Make sure to commit and push any code you have been working on).
 
@@ -14,13 +16,13 @@ Please run the following commands in your CodeSpace to download and run the patc
  2. Download the patch
 
 ```
-curl -O -J -L https://github.com/My-UofE/ECM1410-2025T2-PairProgrammingCoursework/raw/refs/heads/main/patch_v1_1.zip
+curl -O -J -L https://github.com/My-UofE/ECM1410-2025T2-PairProgrammingCoursework/raw/refs/heads/main/patch_v1_2.zip
 ```
 
 3. unzip into .classroom directory then delete zip
 
 ```
-unzip -o patch_v1_1.zip; rm patch_v1_1.zip
+unzip -o patch_v1_2.zip; rm patch_v1_2.zip
 ```
 
 4. run patch to automatically update GamesLeague.java.
@@ -28,11 +30,11 @@ unzip -o patch_v1_1.zip; rm patch_v1_1.zip
 Please note and where necessary manually update your file with any changes that could not be made.
 
 ```
-bash .classroom/apply_patch_v1_1.sh
+bash .classroom/apply_patch_v1_2.sh
 ```
 
 
-## About patch_v1_1
+## About patch_v1_2
 
 This patch makes some fixes to clarify the documentation and some inconsistencies in the listed exceptions.
 
@@ -41,17 +43,37 @@ To patch your `GamesLeague.java` file first ensure you have committed your code 
 Next run the following in the terminal (while within the main directory):
 
 ```
-bash ./.classroom apply_patch_v1_1.sh
+bash ./.classroom apply_patch_v1_2.sh
 ```
 
 This script uses find/replace targets to update the documentation/exceptions.
 
-After running your GamesLeagueInterface should be  v 0.3.4
+**After patching the Interface version should be set to v0.3.5**
 
-If the patch does not work you can check and manually update where necessary your GamesLeague.java file according to the list of changes below:
+**If the patch does not work you can manually update your GamesLeague.java file using the following:**
 
+### Changes in Patch_v_1_2 (13th March 1pm)
 
-### Patch_v_1_1 (extra change)
+Adjusted `cloneLeague` exceptions to match `createLeague` exceptions for consistency.
+
+```java
+     * @param newName The name of the new league.
+     * @return The ID of the new league.
+     * @throws IDInvalidException If the ID does not match to any player in the system.
+     * @throws InvalidNameException If the name is null, starts/ends with whitespace, 
+     *                              is less than 1 characters or more than 20 characters.
+     * @throws IllegalNameException if it duplicates an existing league name
+     */
+    
+    int cloneLeague(int leagueId, String newName)
+        throws  IDInvalidException,
+                InvalidNameException, 
+                IllegalNameException;
+```
+
+-------
+
+### Changes in Patch_v_1_1 (13th March 10am)
 
 Removed the requirement to change player status in `registerGameReport()` i.e. deletes the indicated line below
 
@@ -62,7 +84,7 @@ Removed the requirement to change player status in `registerGameReport()` i.e. d
 
 -------
 
-### Patch v_1
+### Changes in Patch v_1
 
 UPDATES: For consistency with other methods `getPlayerEmail` method should throw `IDInvalidException` (not `IllegalEmailException`).
 
