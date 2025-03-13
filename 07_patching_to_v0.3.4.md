@@ -1,56 +1,68 @@
-#### Patching to version 0.3.3 of GamesLeagueInterface
+#### Patching to version 0.3.4 of GamesLeagueInterface
 
 As mentioned thanks to some students who identified some inconsistences in the interface. I have created a patch script which attemmpts to update your repository with the corrections.
 
-The idea is that your `GamesLeagueInterface.java` file gets replaced with v0.3.3 (started as v0.3.1) which has the fixes. 
+The idea is that your `GamesLeagueInterface.java` file gets replaced with v0.3.4 (started as v0.3.1) which has the fixes. 
 The patch script tries to automatically make corresponding changes to your GamesLeague.java file (which should be in your ./src/gamesleague directory).
 
 You can either use the instructions below to try to patch your code, or make the changes manually to the files using the list of corrections below.
 
 Please run the following commands in your CodeSpace to download and run the patch with the documentation/exception fixes. (Make sure to commit and push any code you have been working on).
 
- 0. Please check you have your `GamesLeague.java` file in the right folder: `./src/gamesleague` (not in the `./src` folder) (move it if its in the wrong place!).
+ 1. Please start by checking you have your `GamesLeague.java` file in the right folder: `./src/gamesleague` (not in the `./src` folder) (move it if its in the wrong place!).
 
- 1. Download the patch
-
-```
-curl -O -J -L https://github.com/My-UofE/ECM1410-2025T2-PairProgrammingCoursework/raw/refs/heads/main/patch_v1.zip
-```
-
-2. unzip into .classroom directory then delete zip
+ 2. Download the patch
 
 ```
-unzip -o patch_v1.zip; rm patch_v1.zip
+curl -O -J -L https://github.com/My-UofE/ECM1410-2025T2-PairProgrammingCoursework/raw/refs/heads/main/patch_v1_1.zip
 ```
 
-3. run patch to automatically update GamesLeague.java.
+3. unzip into .classroom directory then delete zip
+
+```
+unzip -o patch_v1_1.zip; rm patch_v1_1.zip
+```
+
+4. run patch to automatically update GamesLeague.java.
 
 Please note and where necessary manually update your file with any changes that could not be made.
 
 ```
-bash .classroom/apply_patch_v1.sh
+bash .classroom/apply_patch_v1_1.sh
 ```
 
 
-## About patch_v1
+## About patch_v1_1
 
 This patch makes some fixes to clarify the documentation and some inconsistencies in the listed exceptions.
 
-To patch your `GamesLeague.java` file first ensure you have committed your code and pushed to GitHub.
+To patch your `GamesLeague.java` file first ensure you have committed your code and pushed to GitHub, and that `GamesLeague.java` is placed in the correct sub folder (`./src/gamesleague`).
 
 Next run the following in the terminal (while within the main directory):
 
 ```
-bash ./.classroom apply_patch_v1.sh
+bash ./.classroom apply_patch_v1_1.sh
 ```
 
 This script uses find/replace targets to update the documentation/exceptions.
 
-v 0.3.1 to v 0.3.3
+After running your GamesLeagueInterface should be  v 0.3.4
 
-If the patch does not work you can manually update your GamesLeague.java file using the following:
+If the patch does not work you can check and manually update where necessary your GamesLeague.java file according to the list of changes below:
+
+
+### Patch_v_1_1 (extra change)
+
+Removed the requirement to change player status in `registerGameReport()` i.e. deletes the indicated line below
+
+```java
+     * Register gameplay by a player in a league. 
+     * LINE TO BE DELETED: The status of the player should be set to IN_PROGRESS.
+```
 
 -------
+
+### Patch v_1
 
 UPDATES: For consistency with other methods `getPlayerEmail` method should throw `IDInvalidException` (not `IllegalEmailException`).
 
