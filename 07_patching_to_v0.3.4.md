@@ -1,4 +1,4 @@
-#### Patching to version 0.3.4 of GamesLeagueInterface
+#### Patching to version 0.3.5 of GamesLeagueInterface (last update 1pm Thurs 13th March)
 
 As mentioned thanks to some students who identified some inconsistences in the interface. I have created a patch script which attemmpts to update your repository with the corrections.
 
