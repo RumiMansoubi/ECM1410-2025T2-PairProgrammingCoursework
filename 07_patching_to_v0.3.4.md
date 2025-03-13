@@ -52,7 +52,7 @@ This script uses find/replace targets to update the documentation/exceptions.
 
 **If the patch does not work you can manually update your GamesLeague.java file using the following:**
 
-### Changes in Patch_v_1_2 (13th March 1pm)
+### Changes in Patch_v1_2 (13th March 2pm)
 
 Adjusted `cloneLeague` exceptions to match `createLeague` exceptions for consistency.
 
@@ -92,7 +92,7 @@ Removed requirement `Once scores are registered the game status for each player 
 
 -------
 
-### Changes in Patch_v_1_1 (13th March 10am)
+### Changes in Patch_v1_1 (13th March 10am)
 
 Removed the requirement to change player status in `registerGameReport()` i.e. deletes the indicated line below
 
@@ -103,7 +103,7 @@ Removed the requirement to change player status in `registerGameReport()` i.e. d
 
 -------
 
-### Changes in Patch v_1
+### Changes in Patch v1
 
 UPDATES: For consistency with other methods `getPlayerEmail` method should throw `IDInvalidException` (not `IllegalEmailException`).
 
