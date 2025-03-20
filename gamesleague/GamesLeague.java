@@ -707,6 +707,7 @@ public class GamesLeague implements GamesLeagueInterface {
     public void removeInviteFromLeague(int leagueId, String email) 
         throws IDInvalidException, IllegalEmailException{
 
+            
         return; // placeholder so class compiles
     };
 
