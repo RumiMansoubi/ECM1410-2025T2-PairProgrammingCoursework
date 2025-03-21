@@ -1,5 +1,0 @@
-1. GamesLeague
-- manages leagues, players, scores
-
-leagues = []
-players = []
