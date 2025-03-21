@@ -12,6 +12,11 @@ public class League {
     private int id;
     private int ownerId;
     private int totalRounds;
+    private int startDate;
+    private int closeDate;
+    private Status status;
+
+
 
     public League(int id, String name, int ownerId, String gameType) {
         this.name = name;
@@ -21,8 +26,9 @@ public class League {
         this.invitedPlayers = new ArrayList<>();
         this.totalRounds = 0;
         this.invitedEmails = new ArrayList<>();
-
-
+        this.status = Status.PENDING;
+        this.startDate = -1;
+        this.closeDate = -1;
 
         players.add(ownerId);
     }
@@ -34,6 +40,7 @@ public class League {
     public String[] getEmailInvites() {
         return invitedEmails.toArray(new String[0]);
     }
+    
 
     public void setName(String name) {
         this.name = name;
@@ -65,11 +72,7 @@ public class League {
         return players.stream().mapToInt(Integer::intValue).toArray();
     }
 
-    public void addPlayer(int playerId) {
-        if (!players.contains(playerId)) {
-            players.add(playerId);
-        }
-    }
+ 
     
     public int getId() {
         return id;
@@ -96,11 +99,12 @@ public class League {
         return players.contains(playerId);
     }
 
-    public void addPlayer(Player player) {
-        if (!players.contains(player)) {
-            players.add(player);
+    public void addPlayer(int playerId) {
+        if (!players.contains(playerId)) {
+            players.add(playerId);
         }
     }
+    
 
     public void invitePlayer(int playerId) {
         if (!invitedPlayers.contains(playerId)) {
@@ -122,9 +126,40 @@ public class League {
     public void removeInvite(String email) {
         invitedEmails.remove(email);
     }
+    
+    public void setStartDate(int day) {
+        this.startDate = day;
+        this.status = Status.IN_PROGRESS;
+    }
+
+    public int getStartDate() {
+        return startDate;
+    }
+
+    public void setCloseDate(int day) {
+        this.closeDate = day;
+        this.status = Status.CLOSED;
+    }
+
+    public int getCloseDate() {
+        return closeDate;
+    }
+
+    public void resetLeague() {
+        this.status = Status.PENDING;
+    }
+    
 
     public int getTotalRounds() {
         return totalRounds;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status newStatus) {
+        this.status = newStatus;
     }
 
     public void displayTeams() {

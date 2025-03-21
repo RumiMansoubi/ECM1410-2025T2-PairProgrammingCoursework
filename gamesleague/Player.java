@@ -47,10 +47,6 @@ public class Player{
         return email;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public String getPhone() {
         return phone;
     }
