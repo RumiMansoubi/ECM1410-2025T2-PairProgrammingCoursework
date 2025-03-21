@@ -1,14 +1,18 @@
 package gamesleague;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class League {
     private String name;
+    private GameType gameType;
     private List<Team> teams;
     private List<Integer> players;
     private List<Integer> invitedPlayers;
     private List<String> invitedEmails;
+    private Map<Integer, Map<Integer, String>> gameReports;
     private int id;
     private int ownerId;
     private int totalRounds;
@@ -18,7 +22,7 @@ public class League {
 
 
 
-    public League(int id, String name, int ownerId, String gameType) {
+    public League(int id, String name, int ownerId, GameType gameType) {
         this.name = name;
         this.teams = new ArrayList<>();
         this.id = id;
@@ -28,7 +32,11 @@ public class League {
         this.invitedEmails = new ArrayList<>();
         this.status = Status.PENDING;
         this.startDate = -1;
+        this.gameType = gameType;
         this.closeDate = -1;
+        this.players = new ArrayList<>();
+        this.gameReports = new HashMap<>();
+
 
         players.add(ownerId);
     }
@@ -99,6 +107,10 @@ public class League {
         return players.contains(playerId);
     }
 
+    public boolean isPlayerActive(int playerId) {
+        return players.contains(playerId);
+    }    
+
     public void addPlayer(int playerId) {
         if (!players.contains(playerId)) {
             players.add(playerId);
@@ -149,6 +161,13 @@ public class League {
         this.status = Status.PENDING;
     }
     
+    public GameType getGameType() {
+        return gameType;
+    }
+
+    public void setGameType(GameType newGameType) {
+        this.gameType = newGameType;
+    }    
 
     public int getTotalRounds() {
         return totalRounds;
@@ -162,9 +181,14 @@ public class League {
         this.status = newStatus;
     }
 
+    
     public void displayTeams() {
         for (Team team : teams) {
             System.out.println(team.getName());
         }
+    }
+
+    public int size() {
+        throw new UnsupportedOperationException("Unimplemented method 'size'");
     }
 }

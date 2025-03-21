@@ -526,7 +526,7 @@ public class GamesLeague implements GamesLeagueInterface {
         }
 
         int leagueId = leagues.size() +1;
-        League newLeague = new League(leagueId, name, owner, gameType.toString());
+        League newLeague = new League(leagueId, name, owner, gameType);
         leagues.add(newLeague);
         
         return leagueId;
@@ -968,9 +968,28 @@ public class GamesLeague implements GamesLeagueInterface {
      * @throws IllegalNameException If the new name already exists in the platform.
      */
     public int cloneLeague(int leagueId, String newName) throws IDInvalidException{
-        
-        return 0; // placeholder so class compiles
-    };
+
+        for (League league : leagues) {
+            if (league.getId() == leagueId) {
+                for (League existingLeague : leagues) {
+                    if (existingLeague.getName().equalsIgnoreCase(newName)) {
+                        throw new IllegalNameException("League name already exists.");
+                    }
+                }
+            
+                int newLeagueID = league.size() + 1;
+                League clonedLeague = new League(newLeagueID, newName, league.getOwnerId(), league.getGameType());
+ 
+                for (int playerId : league.getPlayers()) {
+                    clonedLeague.invitePlayer(playerId);
+                }
+                
+                leagues.add(clonedLeague);
+                return newLeagueID;
+            }
+        }
+        throw new IDInvalidException("No league found: " + leagueId);
+    }
 
 
     /**
@@ -982,12 +1001,36 @@ public class GamesLeague implements GamesLeagueInterface {
      * @throws IDInvalidException If the ID does not match to any league or player in the system.
      * @throws IllegalOperationException If the ID does not match to any player in the league.
      */
+    private League findLeagueById(int leagueId) throws IDInvalidException {
+        for (League league : leagues) {
+            if (league.getId() == leagueId) {
+                return league;
+            }
+        }
+        throw new IDInvalidException("No league found with ID: " + leagueId);
+    }
+    @Override
     public boolean isLeaguePlayerActive(int leagueId, int playerId) 
         throws IDInvalidException, IllegalArgumentException{
 
-        return false; // placeholder so class compiles
-    };
+            League league = findLeagueById(leagueId);
+            List<Integer> playerList = new ArrayList<>();
+            for (int id : league.getPlayers()) {
+                playerList.add(id);
+            }
+        
+            if (!playerList.contains(playerId)) {
+                throw new IllegalArgumentException("Player is not part of this league.");
+            }
+            
+            return league.isPlayerActive(playerId); // Check if player is active
 
+                    //return false; // placeholder so class compiles
+         };
+                
+            
+            
+            
     /** 
      * Sets a player to be registered as inactive in the league.
      * 
